@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery Timer Demo</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card" style="width: 40rem;margin-top: 20vh;margin-left: 40vh;">
+
+            <div class="card-body">
+                <h5 id="timer1" class="card-title"></h5>
+                <p class="card-text text-note" style="display: none;">Refresh the page to start timer again.</p>
+
+                <button type="button" id="pause" class="btn btn-primary">Pause</button>
+                <button type="button" id="resume" class="btn btn-secondary">Resume</button>
+
+                <button type="button" id="remove" class="btn btn-danger">Remove</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timer.jquery/0.7.0/timer.jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            //start a timer
+            $("#timer1").timer();
+
+            //pause the timer
+            $('#pause').on('click', function () {
+                $('#timer1').timer('pause');
+
+            })
+
+            //resume the timer
+            $('#resume').on('click', function () {
+                $('#timer1').timer('resume');
+
+            })
+
+            //remove the timer
+            $('#remove').on('click', function () {
+                $('#timer1').timer('remove').hide();
+                $('#pause,#resume,#remove').hide();
+                $('.text-note').show();
+
+            })
+
+        });
+    </script>
+</body>
+
+</html>
